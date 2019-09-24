@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
-
+import { UserService } from '../../../../../FeastFreedom_Angular/FreedomFeast/src/app/user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
