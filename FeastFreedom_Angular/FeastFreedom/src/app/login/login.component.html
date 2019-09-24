@@ -8,10 +8,14 @@
           <div class="col-sm-4"></div>
           <div class="col-sm-4"></div>
         </div>
-        <div class="row" style='margin:auto auto 10% auto'>
-            <div class="col-sm-12" align='center'><input type="text" value='username'/></div>
-            <div class="col-sm-12" align='center'><input type="text" value='password'/></div>
-        </div>
+        <div class ="jumbotron">
+          <h2>Login User</h2>
+          <label for="email">Email</label>
+          <p><input id = "email" [(ngModel)]="input.username" placeholder="Email"></p>
+          <label for="password">Password</label>
+          <p><input id = "password" [(ngModel)]="input.password" type = "password" placeholder="Password"></p>
+          <button class = "btn btn-primary" (click)="loginUser()">Login User</button>
+      </div>
         <div class="row" style='width:100%;margin:auto auto auto auto'>
           <div class="col-sm-6" align='left'>
             <a class='text-dark' routerLink='/register'>Register</a>
