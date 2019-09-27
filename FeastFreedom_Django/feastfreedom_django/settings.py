@@ -42,14 +42,20 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
 
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+
     'api',
-    'account',
+    'accounts',
     'kitchen',
     'corsheaders',
     # provider...
 ]
+SITE_ID = 1
 
-AUTH_USER_MODEL = 'account.User'  # changes built-in user model
+AUTH_USER_MODEL = 'accounts.User'  # changes built-in user model
 
 # REST_FRAMEWORK = {
 #     'DEFAULT_PERMISSION_CLASSES': (
@@ -149,3 +155,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.RegisterSerializer'
+}
