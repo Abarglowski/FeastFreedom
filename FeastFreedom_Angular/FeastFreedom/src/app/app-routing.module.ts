@@ -4,14 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { KitchenComponent } from './kitchen/kitchen.component'
 const routes: Routes = [
-  {path:'',
+  {path: '',
   redirectTo: '/',
    pathMatch: 'full'},
-  {path:'login',
+  {path: 'login',
   component: LoginComponent},
-  {path:'register',
+  {path: 'register',
   component: RegisterComponent},
-  {path:'kitchen',
+  {path: 'kitchen',
   component: KitchenComponent},
 ];
 

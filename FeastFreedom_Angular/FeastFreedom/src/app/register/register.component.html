@@ -1,13 +1,26 @@
 <div class = "container">
-    <div class ="jumbotron">
+    <div *ngIf="!providerRegister" class ="jumbotron">
         <h2>Register User</h2>
         <label for="email">Email</label>
         <p><input id = "email" [(ngModel)]="register.email" placeholder="Email"></p>
         <label for="password">Password</label>
         <p><input id = "password" [(ngModel)]="register.password" type = "password" placeholder="Password"></p>
         <label for="full_name">Full Name</label>
-        <p><input id = "full_name" [(ngModel)]="register.full_name" placeholder="full_name"></p>
-        <button class = "btn btn-primary" (click)="registerUser()">Register User</button>
+        <p><input id = "full_name" [(ngModel)]="register.full_name" placeholder="Full Name"></p>
+        <button class = "btn btn-success" (click)="registerUser()">Register User</button>
+        <button class = "btn btn-secondary" routerLink = "/login">Go to Login</button>
+    </div>
+
+    <div *ngIf="providerRegister" class ="jumbotron">
+        <h2>Register Provider</h2>
+        <label for="email">Email</label>
+        <p><input id = "email" [(ngModel)]="register.email" placeholder="Email"></p>
+        <label for="password">Password</label>
+        <p><input id = "password" [(ngModel)]="register.password" type = "password" placeholder="Password"></p>
+        <label for="full_name">Full Name</label>
+        <p><input id = "full_name" [(ngModel)]="register.full_name" placeholder="Kitchen/Provider Name"></p>
+        <button class = "btn btn-success" (click)="registerProvider()">Register Provider</button>
+        <button class = "btn btn-secondary" routerLink = "/login">Go to Login</button>
     </div>
 
 
