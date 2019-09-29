@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.input = {
-      username: '', // username
+      email: '', // username
       password: ''
     };
     const usrToken = this.cookieService.get('usr-token');

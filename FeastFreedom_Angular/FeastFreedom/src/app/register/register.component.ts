@@ -22,14 +22,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.register = {
       email: '',
-      full_name: '',
-      password: ''
+      password: '',
+      name: '',
+      is_sp: false
     };
     this.provider = {
       email: '',
-      full_name: '',
+      name: '',
       password: '',
-      is_staff: true
+      is_sp: true
     };
   }
 
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
     this.userService.registerUser(this.register).subscribe(
       response => {
         alert('User ' + this.register.email + ' has been created!');
+        this.router.navigate(['/login']);
       },
       error => console.log('error', error)
     );

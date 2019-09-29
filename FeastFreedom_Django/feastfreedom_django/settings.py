@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
     'api',
     'accounts',
-    'kitchen',
+    # 'kitchen',
     'corsheaders',
     # provider...
 ]

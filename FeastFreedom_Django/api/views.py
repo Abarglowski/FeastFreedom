@@ -1,20 +1,21 @@
 from django.contrib.auth import get_user_model
-from rest_framework import viewsets
-from api.serializers import UserSerializer  # GroupSerializer
-User = get_user_model()
+from rest_framework import viewsets, status
 
-class UserViewSet(viewsets.ModelViewSet):
-    pass
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-timestamp')
-    serializer_class = UserSerializer
+from rest_framework.authentication import TokenAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from .models import Kitchen, MenuItem
+from .serializers import KitchenSerializer, MenuSerializer
 
 
-# class GroupViewSet(viewsets.ModelViewSet):
-#     """
-#     API endpoint that allows groups to be viewed or edited.
-#     """
-#     queryset = Group.objects.all()
-#     serializer_class = GroupSerializer
+class KitchenViewSet(viewsets.ModelViewSet):
+    queryset = Kitchen.objects.all()
+    serializer_class = KitchenSerializer
+
+   
+
+class MenuViewSet(viewsets.ModelViewSet):
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuSerializer

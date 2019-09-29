@@ -1,18 +1,22 @@
 # from django.contrib.auth.models import User, Group  # importing user from auth models
-from django.contrib.auth import get_user_model
+
 from rest_framework import serializers
-User = get_user_model()
+from .models import Kitchen, MenuItem
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class KitchenSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ['id', 'email', 'full_name', 'password']
-        extra_kwargs = {'password': {'write_only': True, 'required': True}}
+        model = Kitchen
+        fields = ('name', 'work_mon', 'work_tue', 'work_wed', 'work_thu', 'work_fri', 'work_sat', 'work_sun',
+                  'start_time', 'end_time', 'image', 'no_of_items')
 
-        def create(self, validated_data):
-            user = User.objects.create_user(**validated_data)  # django hashes password
-            return user
+
+class MenuSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = MenuItem
+        fields = ('kitchen', 'name', 'is_veg', 'price', 'description')
+
+
 
 
 # class GroupSerializer(serializers.HyperlinkedModelSerializer):

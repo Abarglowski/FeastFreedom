@@ -19,6 +19,10 @@ class Kitchen(models.Model):
     image = models.ImageField(
         upload_to='images/kitchens/', default='images/kitchen/default.jpg')
 
+    def no_of_items(self):
+        numberOfItems = MenuItem.objects.filter(kitchen=self)
+        return len(numberOfItems)
+
 
 class MenuItem(models.Model):
     kitchen = models.ForeignKey(
