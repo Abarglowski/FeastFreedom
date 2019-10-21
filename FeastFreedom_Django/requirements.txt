@@ -65,5 +65,5 @@ scipy==0.13.0b1
 six==1.4.1
 suds==0.4
 vboxapi==1.0
-Werkzeug==0.11.10
+Werkzeug==0.15.3
 xattr==0.6.4
